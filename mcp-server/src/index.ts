@@ -52,6 +52,7 @@ server.registerTool(
 // Register shops resource
 server.registerResource(
   "shops",
+  "shops",
   {
     title: "Shops Data",
     description: "Provides access to shop information"
@@ -83,6 +84,7 @@ server.registerResource(
 
 // Register customers resource
 server.registerResource(
+  "customers",
   "customers",
   {
     title: "Customers Data",
@@ -116,6 +118,7 @@ server.registerResource(
 // Register shop customers resource
 server.registerResource(
   "shop-customers",
+  "shop-customers",
   {
     title: "Shop Customers",
     description: "Get customers by their favorite shop"
@@ -143,4 +146,4 @@ server.registerResource(
 const transport = new StdioServerTransport();
 server.connect(transport).catch(console.error);
 
-console.log("MCP Server is running...");
+console.log("MCP Server is running with STDIO transport...");

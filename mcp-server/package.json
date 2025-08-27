@@ -3,17 +3,26 @@
   "version": "1.0.0",
   "description": "MCP Server Implementation",
   "main": "dist/index.js",
+  "type": "module",
   "scripts": {
+    "dev": "tsx watch src/index.ts",
     "build": "tsc",
-    "start": "tsx watch src/index.ts",
-    "dev": "tsx src/index.ts"
+    "start": "node dist/index.js",
+    "clean": "rm -rf dist",
+    "prebuild": "yarn clean",
+    "inspect": "npx @modelcontextprotocol/inspector tsx src/index.ts",
+    "inspect:ui": "open http://localhost:6274"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.17.0"
+    "@modelcontextprotocol/inspector": "^0.16.5",
+    "@modelcontextprotocol/sdk": "^1.17.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@types/node": "^20.0.0",
+    "@types/node": "^20.11.24",
+    "concurrently": "^9.2.1",
     "tsx": "^4.7.0",
-    "typescript": "^5.0.0"
-  }
+    "typescript": "^5.3.3"
+  },
+  "license": "MIT"
 }
