@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "name": "Alice Johnson",
+    "email": "alice.johnson@example.com",
+    "membershipLevel": "Gold",
+    "totalPurchases": 15,
+    "favoriteShopId": 1,
+    "joinDate": "2020-01-15"
+  },
+  {
+    "id": 2,
+    "name": "Bob Smith",
+    "email": "bob.smith@example.com",
+    "membershipLevel": "Silver",
+    "totalPurchases": 8,
+    "favoriteShopId": 1,
+    "joinDate": "2020-06-22"
+  },
+  {
+    "id": 3,
+    "name": "Charlie Brown",
+    "email": "charlie.brown@example.com",
+    "membershipLevel": "Platinum",
+    "totalPurchases": 25,
+    "favoriteShopId": 1,
+    "joinDate": "2019-11-05"
+  },
+  {
+    "id": 4,
+    "name": "Diana Prince",
+    "email": "diana.prince@example.com",
+    "membershipLevel": "Gold",
+    "totalPurchases": 18,
+    "favoriteShopId": 2,
+    "joinDate": "2020-03-14"
+  },
+  {
+    "id": 5,
+    "name": "Ethan Hunt",
+    "email": "ethan.hunt@example.com",
+    "membershipLevel": "Silver",
+    "totalPurchases": 6,
+    "favoriteShopId": 2,
+    "joinDate": "2021-01-30"
+  },
+  {
+    "id": 6,
+    "name": "Fiona Green",
+    "email": "fiona.green@example.com",
+    "membershipLevel": "Bronze",
+    "totalPurchases": 3,
+    "favoriteShopId": 2,
+    "joinDate": "2021-05-15"
+  },
+  {
+    "id": 7,
+    "name": "George Wilson",
+    "email": "george.wilson@example.com",
+    "membershipLevel": "Platinum",
+    "totalPurchases": 30,
+    "favoriteShopId": 3,
+    "joinDate": "2019-08-18"
+  },
+  {
+    "id": 8,
+    "name": "Hannah Baker",
+    "email": "hannah.baker@example.com",
+    "membershipLevel": "Gold",
+    "totalPurchases": 12,
+    "favoriteShopId": 3,
+    "joinDate": "2020-09-22"
+  },
+  {
+    "id": 9,
+    "name": "Ian Cooper",
+    "email": "ian.cooper@example.com",
+    "membershipLevel": "Silver",
+    "totalPurchases": 7,
+    "favoriteShopId": 3,
+    "joinDate": "2021-03-10"
+  }
+]

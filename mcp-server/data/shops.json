@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "FreshMart",
+    "type": "Grocery Store",
+    "location": "123 Main St",
+    "established": "2018-05-15",
+    "rating": 4.5
+  },
+  {
+    "id": 2,
+    "name": "TechHaven",
+    "type": "Electronics Store",
+    "location": "456 Tech Ave",
+    "established": "2019-11-22",
+    "rating": 4.2
+  },
+  {
+    "id": 3,
+    "name": "Fashion Plus",
+    "type": "Clothing Store",
+    "location": "789 Style Blvd",
+    "established": "2020-03-10",
+    "rating": 4.0
+  }
+]
