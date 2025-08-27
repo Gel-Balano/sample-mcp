@@ -1,0 +1,10 @@
+{
+    "mcpServers":{
+    "shop-customer-server":{
+        "command":"tsx",
+        "args":["src/index.ts"],
+        "cwd":"${workspaceFolder}",
+        "name":"shop-customer-server",
+        "version":"1.0.0"
+    }
+}}

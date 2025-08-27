@@ -10,7 +10,7 @@
     "start": "node dist/index.js",
     "clean": "rm -rf dist",
     "prebuild": "yarn clean",
-    "inspect": "npx @modelcontextprotocol/inspector tsx src/index.ts",
+    "inspect": "DANGEROUSLY_OMIT_AUTH=true npx @modelcontextprotocol/inspector tsx src/index.ts",
     "inspect:ui": "open http://localhost:6274"
   },
   "dependencies": {

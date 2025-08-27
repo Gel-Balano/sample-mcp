@@ -79,5 +79,14 @@
     "totalPurchases": 7,
     "favoriteShopId": 3,
     "joinDate": "2021-03-10"
+  },
+  {
+    "id": 10,
+    "name": "jackson rampage",
+    "email": "jackson.rampage@example.com",
+    "membershipLevel": "Silver",
+    "totalPurchases": 19,
+    "favoriteShopId": 1,
+    "joinDate": "2023-08-28"
   }
 ]

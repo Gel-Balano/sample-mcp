@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "customerId": 1,
+    "shopId": 1,
+    "amount": 45.50,
+    "date": "2023-08-15",
+    "description": "Groceries and household items"
+  },
+  {
+    "id": 2,
+    "customerId": 2,
+    "shopId": 1,
+    "amount": 120.00,
+    "date": "2023-08-20",
+    "description": "Electronics purchase"
+  },
+  {
+    "id": 3,
+    "customerId": 3,
+    "shopId": 2,
+    "amount": 85.25,
+    "date": "2023-08-25",
+    "description": "Clothing and accessories"
+  },
+  {
+    "id": 4,
+    "customerId": 1,
+    "shopId": 3,
+    "amount": 30.75,
+    "date": "2023-09-02",
+    "description": "Fresh produce and dairy"
+  },
+  {
+    "id": 5,
+    "customerId": 4,
+    "shopId": 2,
+    "amount": 200.00,
+    "date": "2023-09-10",
+    "description": "Laptop and accessories"
+  },
+  {
+    "id": 6,
+    "customerId": 5,
+    "shopId": 1,
+    "amount": 15.40,
+    "date": "2023-09-15",
+    "description": "Snacks and beverages"
+  }
+]
