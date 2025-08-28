@@ -88,5 +88,32 @@
     "totalPurchases": 19,
     "favoriteShopId": 1,
     "joinDate": "2023-08-28"
+  },
+  {
+    "id": 11,
+    "name": "Raymond",
+    "email": "raymond@example.com",
+    "membershipLevel": "Platinum",
+    "totalPurchases": 11,
+    "favoriteShopId": 3,
+    "joinDate": "2023-05-30"
+  },
+  {
+    "id": 12,
+    "name": "boss vic",
+    "email": "boss.vic@example.com",
+    "membershipLevel": "Silver",
+    "totalPurchases": 30,
+    "favoriteShopId": 3,
+    "joinDate": "2023-09-07"
+  },
+  {
+    "id": 13,
+    "name": "Jason Torres",
+    "email": "jason.torres@example.com",
+    "membershipLevel": "Silver",
+    "totalPurchases": 28,
+    "favoriteShopId": 2,
+    "joinDate": "2020-11-29"
   }
 ]
