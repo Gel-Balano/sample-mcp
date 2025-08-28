@@ -32,6 +32,50 @@ server.registerResource(
   }
 )
 
+// Register shops resource
+server.registerResource(
+  "shops",
+  "shops://",
+  {
+    title: "Shops Data",
+    description: "Provides access to shop information"
+  },
+  async (uri: URL) => {
+    const { shops } = await loadData();
+
+    // For shops://, return all shops
+    if (uri.toString() === 'shops://') {
+      return {
+        contents: [{
+          uri: 'shops://',
+          text: JSON.stringify(shops, null, 2)
+        }]
+      };
+    }
+
+    // For shops://{id}, return specific shop
+    const shopId = uri.toString().replace('shops://', '');
+    if (shopId) {
+      const shop = shops.find((s: any) => s.id === parseInt(shopId));
+      if (!shop) throw new Error(`Shop with ID ${shopId} not found`);
+
+      return {
+        contents: [{
+          uri: `shops://${shopId}`,
+          text: JSON.stringify(shop, null, 2)
+        }]
+      };
+    }
+
+    return {
+      contents: [{
+        uri: 'shops://',
+        text: JSON.stringify(shops, null, 2)
+      }]
+    };
+  }
+)
+
 server.registerResource(
   "customers",
   "customers://",
@@ -367,50 +411,6 @@ server.registerPrompt(
           }
         }
       ]
-    };
-  }
-);
-
-// Register shops resource
-server.registerResource(
-  "shops",
-  "shops://",
-  {
-    title: "Shops Data",
-    description: "Provides access to shop information"
-  },
-  async (uri: URL) => {
-    const { shops } = await loadData();
-
-    // For shops://, return all shops
-    if (uri.toString() === 'shops://') {
-      return {
-        contents: [{
-          uri: 'shops://',
-          text: JSON.stringify(shops, null, 2)
-        }]
-      };
-    }
-
-    // For shops://{id}, return specific shop
-    const shopId = uri.toString().replace('shops://', '');
-    if (shopId) {
-      const shop = shops.find((s: any) => s.id === parseInt(shopId));
-      if (!shop) throw new Error(`Shop with ID ${shopId} not found`);
-
-      return {
-        contents: [{
-          uri: `shops://${shopId}`,
-          text: JSON.stringify(shop, null, 2)
-        }]
-      };
-    }
-
-    return {
-      contents: [{
-        uri: 'shops://',
-        text: JSON.stringify(shops, null, 2)
-      }]
     };
   }
 );
