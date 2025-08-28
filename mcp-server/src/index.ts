@@ -388,35 +388,6 @@ server.registerTool(
   }
 );
 
-// Register generate-fake-customers prompt
-server.registerPrompt(
-  "generate-fake-customers",
-  {
-    title: "Generate Fake Customers",
-    description: "Generates a prompt for creating fake customer data with specified name and store ID",
-    argsSchema: {
-      name: z.string().min(1, "Name is required"),
-      store_id: z.string().regex(/^\d+$/, "Store ID must be a numeric string")
-    }
-  },
-  async (args) => {
-    const storeId = parseInt(args.store_id, 10);
-    return {
-      messages: [
-        {
-          role: "user",
-          content: {
-            type: "text",
-            text: `Generate a fake customer with the name ${args.name} for shop id: ${storeId}. This will have generated random customer details`
-          }
-        }
-      ]
-    };
-  }
-);
-
-
-
 // Start the server with stdio transport
 const transport = new StdioServerTransport();
 server.connect(transport).catch(console.error);
