@@ -393,26 +393,58 @@ server.registerTool(
   }
 );
 
-// Register generate-fake-customers prompt
+// Register customer-insights prompt
 server.registerPrompt(
-  "generate-fake-customers",
+  "customer-insights",
   {
-    title: "Generate Fake Customers",
-    description: "Generates a prompt for creating fake customer data with specified name and store ID",
+    title: "Customer Insights & Recommendations",
+    description: "Generates personalized insights and recommendations for a specific customer based on their transaction history and preferences",
     argsSchema: {
-      name: z.string().min(1, "Name is required"),
-      store_id: z.string().regex(/^\d+$/, "Store ID must be a numeric string")
+      customer_id: z.string().regex(/^\d+$/, "Customer ID must be a numeric string"),
+      insight_type: z.enum(["spending", "loyalty", "personalization", "retention"]).describe("Type of insight to generate")
     }
   },
   async (args) => {
-    const storeId = parseInt(args.store_id, 10);
+    const customerId = parseInt(args.customer_id, 10);
+    const { customers, transactions, shops } = await loadData();
+
+    const customer = customers.find((c: any) => c.id === customerId);
+    if (!customer) {
+      throw new Error(`Customer with ID ${customerId} not found`);
+    }
+
+    const customerTransactions = transactions.filter((t: any) => t.customerId === customerId);
+    const favoriteShop = shops.find((s: any) => s.id === customer.favoriteShopId);
+
+    let promptText = `Analyze this customer's data and provide ${args.insight_type} insights:\n\n`;
+    promptText += `Customer Profile:\n${JSON.stringify(customer, null, 2)}\n\n`;
+    promptText += `Favorite Shop:\n${JSON.stringify(favoriteShop, null, 2)}\n\n`;
+    promptText += `Transaction History (${customerTransactions.length} transactions):\n${JSON.stringify(customerTransactions.slice(0, 10), null, 2)}\n\n`;
+
+    switch (args.insight_type) {
+      case "spending":
+        promptText += "Focus on: Spending patterns, average transaction amounts, total spending, potential for upselling premium products.";
+        break;
+      case "loyalty":
+        promptText += "Focus on: Loyalty indicators, membership level benefits, retention strategies, rewards program optimization.";
+        break;
+      case "personalization":
+        promptText += "Focus on: Personalized recommendations, product preferences, shopping behavior patterns, targeted marketing opportunities.";
+        break;
+      case "retention":
+        promptText += "Focus on: Retention strategies, churn risk assessment, re-engagement opportunities, customer lifetime value.";
+        break;
+    }
+
+    promptText += "\n\nProvide actionable insights and specific recommendations based on this data.";
+
     return {
       messages: [
         {
           role: "user",
           content: {
             type: "text",
-            text: `Generate a fake customer with the name ${args.name} for shop id: ${storeId}. This will have generated random customer details`
+            text: promptText
           }
         }
       ]
