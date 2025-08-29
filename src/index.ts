@@ -47,6 +47,35 @@ server.registerTool(
   })
 )
 
+// Register a simple prompt
+server.registerPrompt(
+  "customer-insights",
+  {
+    title: "Customer Insights & Recommendations",
+    description: "Generates personalized insights and recommendations for a specific customer based on their transaction history and preferences",
+    argsSchema: {
+      customer_id: z.string().regex(/^\d+$/, "Customer ID must be a numeric string"),
+      insight_type: z.enum(["spending", "loyalty", "personalization", "retention"]).describe("Type of insight to generate")
+    }
+  },
+  async (args) => {
+    const { customer_id, insight_type } = args;
+    const promptText = `Please analyze customer ${customer_id} and provide ${insight_type} insights. Consider their purchase history, preferences, and behavior patterns to generate actionable recommendations.`;
+    
+    return {
+      messages: [
+        {
+          role: "user",
+          content: {
+            type: "text",
+            text: promptText
+          }
+        }
+      ]
+    };
+  }
+);
+
 // Start the server with stdio transport
 const transport = new StdioServerTransport();
 server.connect(transport).catch(console.error);
