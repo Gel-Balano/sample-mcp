@@ -7,7 +7,7 @@ A simple [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server
 The Model Context Protocol (MCP) is an open protocol that enables secure connections between host applications and external data sources and tools. Learn more:
 
 - 📖 [Official MCP Documentation](https://modelcontextprotocol.io/)
-- 🛠️ [MCP SDK Documentation](https://modelcontextprotocol.io/docs/concepts/architecture)
+- 🛠️ [MCP typescipt SDK Documentation](https://github.com/modelcontextprotocol/typescript-sdk)
 - 📋 [MCP Specification](https://spec.modelcontextprotocol.io/)
 - 🏗️ [Building MCP Servers](https://modelcontextprotocol.io/docs/building-servers)
 
@@ -87,7 +87,7 @@ This server runs using STDIO transport, making it compatible with MCP clients li
 
 To use this server with Claude Desktop, add it to your MCP settings. For detailed setup instructions, see:
 - 📄 [Claude Desktop MCP Guide](https://modelcontextprotocol.io/clients/claude-desktop)
-- ⚙️ [MCP Client Configuration](https://modelcontextprotocol.io/docs/tools/inspector)
+- ⚙️ [MCP Client Configuration](https://modelcontextprotocol.io/quickstart/client)
 
 ### AI IDE Integration (Windsurf, Roo Code)
 
