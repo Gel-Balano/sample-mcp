@@ -75,6 +75,44 @@ sample-mcp/
 - **Tools**: Echo tool for testing MCP communication
 - **Transport**: STDIO transport for MCP client communication
 
+### Custom Resource Template Example
+
+You can extend this server by adding custom resource templates for new URI schemes using `server.registerResource`. Here's an example of how to define a new resource template:
+
+```typescript
+// User profile resource with dynamic userId parameter
+server.registerResource(
+  "user-profile",
+  new ResourceTemplate("users://{userId}/profile", { list: undefined }),
+  {
+    title: "User Profile",
+    description: "User profile information"
+  },
+  async (uri, { userId }) => ({
+    contents: [{
+      uri: uri.href,
+      mimeType: "application/json",
+      text: JSON.stringify({
+        userId,
+        name: `User ${userId}`,
+        email: `user${userId}@example.com`,
+        profile: {
+          joinDate: "2024-01-15",
+          lastLogin: new Date().toISOString(),
+          preferences: {
+            theme: "dark",
+            notifications: true
+          }
+        }
+      }, null, 2)
+    }]
+  })
+);
+```
+
+**Usage Example:**
+- `users://123/profile` - Access user profile for user ID 123
+
 ## Usage with MCP Clients
 
 This server runs using STDIO transport, making it compatible with MCP clients like:
